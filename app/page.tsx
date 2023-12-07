@@ -103,9 +103,9 @@ export default function Home() {
   const count = Math.ceil(filteredMagang.length / 12);
 
   return (
-    <main className='flex min-h-screen flex-col items-center justify-center p-8 px-4 md:p-24 gap-8 max-w-screen-2xl mx-auto'>
+    <main className='flex min-h-screen flex-col items-center justify-center p-8 px-4 md:p-12 lg:p-24 gap-8 max-w-screen-2xl mx-auto'>
       <h1 className='text-4xl font-extrabold lg:text-5xl'>Cari Magang KM</h1>
-      <div className='flex flex-col md:flex-row gap-2 sm:gap-4 lg:gap-6 w-full md:w-3/4'>
+      <div className='flex flex-col md:flex-row gap-2 sm:gap-4 lg:gap-6 w-full lg:w-3/4'>
         <Input
           placeholder='Semua Posisi'
           onChange={(e) => setPosisiDebounced(e.target.value)}
@@ -141,7 +141,7 @@ export default function Home() {
           <MyCard {...magang} key={magang.id} />
         ))}
       </div>
-      <div className='fixed bottom-0 backdrop-blur-md bg-white/30 mb-8 px-4 py-2 rounded-3xl shadow-lg mx-4'>
+      <div className='fixed bottom-0 backdrop-blur-md bg-white/30 mb-4 md:mb-8 px-4 py-2 rounded-3xl shadow-lg mx-4'>
         {innerWidth! <= 768 ? (
           <Pagination
             count={count}
