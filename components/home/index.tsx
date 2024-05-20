@@ -105,6 +105,11 @@ export default function Home({ data }: { data: Magang[] }) {
           new Date(b.published_time).getTime() -
           new Date(a.published_time).getTime()
       );
+    } else if (selectedValue == "Bookmarked") { 
+      const ids: string[] = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+      filteredMagang = filteredMagang.filter((magang) =>
+        ids.find((id) => id === magang.id)
+      );
     }
 
     setFilteredMagang(filteredMagang);
@@ -119,7 +124,7 @@ export default function Home({ data }: { data: Magang[] }) {
       </h1>
       <p className='text-xs text-muted-foreground italic'>
         with fuzzy search, faster loading speed, extra information, and sorting
-        capabilities. Data is updated every hour.
+        capabilities. Data is updated every hour. Bookmarked items are stored in local storage.
       </p>
       <div className='flex flex-col md:flex-row gap-2 sm:gap-4 lg:gap-6 w-full lg:w-3/4'>
         <Input
@@ -145,6 +150,7 @@ export default function Home({ data }: { data: Magang[] }) {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value='Relevance'>Relevance</SelectItem>
+            <SelectItem value='Bookmarked'>Bookmarked</SelectItem>
             <SelectItem value='Name (Ascending)'>Name (Ascending)</SelectItem>
             <SelectItem value='Name (Descending)'>Name (Descending)</SelectItem>
             <SelectItem value='Company (Ascending)'>
