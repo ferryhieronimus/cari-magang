@@ -71,7 +71,7 @@ export default function Home({ data }: { data: Magang[] }) {
         ignoreFieldNorm: true,
         includeScore: true,
         threshold: 0.3,
-        keys: ["mitra_name"],
+        keys: ["mitra_name", "mitra_brand_name"],
       })
         .search(perusahaan)
         .map((result) => result.item);
