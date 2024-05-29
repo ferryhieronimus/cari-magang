@@ -122,10 +122,6 @@ export default function Home({ data }: { data: Magang[] }) {
       <h1 className='text-3xl font-extrabold lg:text-4xl'>
         Cari Magang Kampus Merdeka 🎓
       </h1>
-      <p className='text-xs text-muted-foreground italic'>
-        with fuzzy search, faster loading speed, extra information, and sorting
-        capabilities. Data is updated every hour. Bookmarked items are stored in local storage.
-      </p>
       <div className='flex flex-col md:flex-row gap-2 sm:gap-4 lg:gap-6 w-full lg:w-3/4'>
         <Input
           placeholder='Semua Posisi'
